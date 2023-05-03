@@ -2,7 +2,12 @@
 https://github.com/not-matthias/apollo/blob/649e3e8f21667efe4dc41e5d539745418b831e95/templates/partials/header.html
 -->
 
+{% if page.title %}
 <meta property="og:title" content="{{ page.title }}">
+
+{% else %}
+<meta property="og:title" content="{{ config.title }}">
+{% endif %}
 <meta property="og:type" content="article" />
 <meta property="og:description" content=" {{ config.description }}">
 <!-- TODO <meta property="og:image" content="http://euro-travel-example.com/thumbnail.jpg"> -->
