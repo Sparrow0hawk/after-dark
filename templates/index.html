@@ -10,6 +10,15 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
       <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+      
+      {% if config.extra.favicon %}
+        <meta name="test">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{
+        get_url(path='static/apple-touch-icon.png') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ get_url(path="static/favicon-32x32.png") }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ get_url(path="static/favicon-16x16.png") }}">
+        <link rel="manifest" href="{{ get_url(path="static/site.webmanifest") }}">
+      {% endif %}
 
       {% if config.generate_feed %}
         <link rel="alternate" type={% if config.feed_filename == "atom.xml" %}"application/atom+xml"{% else %}"application/rss+xml"{% endif %} title="RSS" href="{{ get_url(path=config.feed_filename) | safe }}">
